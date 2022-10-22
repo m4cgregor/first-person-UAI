@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Shooting : MonoBehaviour
 {
@@ -15,6 +16,16 @@ public class Shooting : MonoBehaviour
     public Text killCountUI;
 
     public int killCount;
+
+
+    public int TotalEnemys;
+    public int TotalEnemysKilled;
+
+    private void Start()
+    {
+        TotalEnemys = GameObject.FindGameObjectsWithTag("Enemy").Length;
+    }
+
 
 
 
@@ -49,12 +60,22 @@ public class Shooting : MonoBehaviour
 
         }
 
+        if(TotalEnemysKilled == TotalEnemys)
+        {
+            SceneManager.LoadScene(3);
+        }
+
+
     }
 
     public void EnemyKilled()
     {
         killCount++;
+        TotalEnemysKilled++;
         killCountUI.text = killCount.ToString();
     }
+
+
+
 
 }
