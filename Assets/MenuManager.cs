@@ -26,5 +26,9 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 	
+
 	// otro cambio
+
+	// otra cosa
+
 }
